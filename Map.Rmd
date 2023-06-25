@@ -1,0 +1,36 @@
+---
+title: "Leaflet map"
+output: html_document
+date: "2023-06-25"
+---
+
+## McDonald's map
+
+```{r results='hide', echo=F, message=F}
+library(leaflet)
+library(dplyr)
+my_map <- leaflet() %>% 
+  addTiles()
+my_map
+```
+
+
+```{r echo=F}
+library(leaflet)
+library(dplyr)
+
+hopkinsIcon <- makeIcon(
+  iconUrl = "https://1000logos.net/wp-content/uploads/2017/03/McDonalds-logo.png",
+  iconWidth = 31*215/230, iconHeight = 18,
+  iconAnchorX = 31*215/230/2, iconAnchorY = 16
+)
+
+my_map <- my_map %>%
+  addMarkers(lat=59.432414126878605, lng=24.71368763306683, 
+             popup="McDonalds", icon = hopkinsIcon)
+
+
+
+my_map
+```
+
